@@ -6,6 +6,8 @@ let indiceColor = 0;
 export const solicitarParticipante = async(req,res)=>{
     try {
         
+        
+
         return res.status(200).json({existe:false});
 
     } catch (error) {
