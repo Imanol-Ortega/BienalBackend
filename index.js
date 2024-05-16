@@ -1,6 +1,6 @@
 import express from "express"
 import cors from "cors"
-import { PORT } from "./ports.js"
+import { PORT } from "./config.js"
 
 import participantesRoutes from "./src/routes/participantes.routes.js"
 

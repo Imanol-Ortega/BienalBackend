@@ -1,13 +1,13 @@
 import { Router } from "express";
-import { guardarParticipante,obtenerParticipantes } from "../controllers/participantes.controller.js";
+import { guardarParticipante,obtenerParticipantes,solicitarParticipante } from "../controllers/participantes.controller.js";
 
 const router = Router();
 
-router.get('/participantes',obtenerParticipantes);
+router.get('/participantes/obtener',obtenerParticipantes);
 
-router.post('/participantes',guardarParticipante);
+router.post('/participantes/nocedula',guardarParticipante);
 
-router.put('participantes',);
+router.post('/participantes/cedula',solicitarParticipante)
 
 
 export default router;
