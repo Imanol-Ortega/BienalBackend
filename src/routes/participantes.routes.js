@@ -7,7 +7,7 @@ router.get('/participantes/obtener',obtenerParticipantes);
 
 router.post('/participantes/nocedula',guardarParticipante);
 
-router.post('/participantes/cedula',solicitarParticipante)
+router.post('/participantes/cedula/:ci',solicitarParticipante)
 
 
 export default router;
