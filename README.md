@@ -1,11 +1,11 @@
 # BackEnd para la Bienal 2024
 >
 ## Tecnologias Necesarias.
->NodeJS v18.17.1.
+>NodeJS v18.17.1. [Descargar](https://nodejs.org/en/download/source-code)
 >
->PostgreSQL v16.0.
+>PostgreSQL v16.0. [Descargar](https://www.postgresql.org/download/)
 >
->ExpressJS v4.19.2.
+>ExpressJS v4.19.2. 
 
 > [!IMPORTANT]
 > Para la base de datos cree una nueva Data Base dentro de PostgreSQL con el nombre de "BieNal", luego haga un restore cargando el archivo que esta en la carpeta BD del proyecto.
