@@ -71,3 +71,5 @@
 >- ci = numero de cedula de la persona.
 
 >- La api recupera los datos de la persona con el numero de cedula proporcionado y los guarda automaticamente en la base de datos.
+
+>- Si no existe el CI te devuelve un JSON con el valor de false para indicar que no se registro previamente el participante 
