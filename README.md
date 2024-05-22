@@ -13,6 +13,8 @@
 > Tambien dentro de la configuracion del archivo "db.js", cambien el nombre del 'user' y el 'password' que puso al instalar el PostgreSQL.
 
 ## Instalacion del proyecto
+> Descargar como zip y extraer o clonar el repositorio
+> 
 > Abra la consola dentro del proyecto y escriba el siguiente comando.
 >```
 > npm install
@@ -27,7 +29,7 @@
 ## Rutas disponibles.
 ### Obtener todos los participantes.
 >```
->http://localhost/4000/participantes/obtener
+>http://localhost:4000/participantes/obtener
 >```
 >- Metodos disponibles: 'GET'.
 
@@ -49,7 +51,7 @@
 >```
 ### Guardar un participante no registrado en la web de la Biecat.
 >```
->http://localhost/4000/participantes/nocedula
+>http://localhost:4000/participantes/nocedula
 >```
 >- Metodos disponibles: **'POST'.**
 
@@ -64,7 +66,7 @@
 >```
 ### Guardar un participante que se registro en la web de la Biecat.
 >```
->http://localhost/4000/participantes/cedula/:ci
+>http://localhost:4000/participantes/cedula/:ci
 >```
 >- Metodos disponibles: 'POST'.
 
