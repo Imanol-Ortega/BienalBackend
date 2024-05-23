@@ -23,7 +23,7 @@ export const solicitarParticipante = async (req, res) => {
 
         const colorAsignado = COLORS[indiceColor];
         indiceColor = (indiceColor + 1) % COLORS.length;
-        await pool.query('INSERT INTO participantes (participantenombre,participantedoc,participantetel,participantecolor,participanteobs,participanteactividad) VALUES($1,$2,$3,$4,$5,$6)', [
+        const result = await pool.query('INSERT INTO participantes (participantenombre,participantedoc,participantetel,participantecolor,participanteobs,participanteactividad) VALUES($1,$2,$3,$4,$5,$6)  RETURNING participanteid,participantenombre', [
             datos[0].nombre,
             datos[0].num_ci,
             datos[0].telefono,
@@ -31,8 +31,9 @@ export const solicitarParticipante = async (req, res) => {
             datos[0].observaciones,
             datos[0].actividad
         ]);
+       
 
-        return res.status(200).json({ data: `Color asignado: ${colorAsignado}`, existe: true });
+        return res.status(200).json({ data: `Color asignado: ${colorAsignado}`, existe: true,participante:result.rows[0] });
 
     } catch (error) {
         console.error('Error al solicitar el participante:', error);
@@ -43,15 +44,24 @@ export const solicitarParticipante = async (req, res) => {
 
 export const guardarParticipante = async(req,res)=>{
     try {
+        console.log('asdgf')
         const resp = req.body;
         const colorAsignado = COLORS[indiceColor];
         indiceColor = (indiceColor +1) % 4;
-        const result = await pool.query('INSERT INTO participantes (participantenombre,participantedoc,participantetel,participantecolor,participanteobs) VALUES($1,$2,$3,$4,$5)',
-                                        [resp.nombre,resp.nrodocumento,resp.telefono,colorAsignado,resp.observacion]);
-
+        console.log(resp)
+        const result = await pool.query('INSERT INTO participantes (participantenombre,participantedoc,participantetel,participantecolor,participanteobs) VALUES($1,$2,$3,$4,$5)  RETURNING participanteid,participantenombre', [
+            resp.nombreApellido,
+            resp.cedula,
+            resp.celular,
+            colorAsignado,
+            resp.observacion
+        ]);
        
-        return res.status(200).json({data:`color ${colorAsignado}`})
+
+        return res.status(200).json({ data: `Color asignado: ${colorAsignado}`,participante:result.rows[0] });
+
     } catch (error) {
+        console.error(error)
         return res.status(500).json({message:`Ocurrió el siguiente error ${error.message}`});
     }
 };
