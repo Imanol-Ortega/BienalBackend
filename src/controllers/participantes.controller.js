@@ -44,11 +44,9 @@ export const solicitarParticipante = async (req, res) => {
 
 export const guardarParticipante = async(req,res)=>{
     try {
-        console.log('asdgf')
         const resp = req.body;
         const colorAsignado = COLORS[indiceColor];
         indiceColor = (indiceColor +1) % 4;
-        console.log(resp)
         const result = await pool.query('INSERT INTO participantes (participantenombre,participantedoc,participantetel,participantecolor,participanteobs) VALUES($1,$2,$3,$4,$5)  RETURNING participanteid,participantenombre', [
             resp.nombreApellido,
             resp.cedula,

@@ -5,6 +5,5 @@ export const participanteRegistrados = async (ci,actividad)=>{
         'SELECT * FROM participantes WHERE participantedoc = $1 AND participanteactividad = $2 ',
         [ci,actividad]
     );
-    console.log(exiteParticipante.rows.length)
     return exiteParticipante.rows.length
 }
